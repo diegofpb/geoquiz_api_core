@@ -1,0 +1,9 @@
+${AnsiColor.BRIGHT_BLUE} _____${AnsiColor.BRIGHT_GREEN}                             _        ___  ______  _____ 
+${AnsiColor.BRIGHT_BLUE}|  __ \${AnsiColor.BRIGHT_GREEN}                           (_)      / _ \ | ___ \|_   _|
+${AnsiColor.BRIGHT_BLUE}| |  \/${AnsiColor.BRIGHT_GREEN}  ___   ___    __ _  _   _  _  ____/ /_\ \| |_/ /  | |  
+${AnsiColor.BRIGHT_BLUE}| | __${AnsiColor.BRIGHT_GREEN}  / _ \ / _ \  / _` || | | || ||_  /|  _  ||  __/   | |  
+${AnsiColor.BRIGHT_BLUE}| |_\ \${AnsiColor.BRIGHT_GREEN}|  __/| (_) || (_| || |_| || | / / | | | || |     _| |_ 
+${AnsiColor.BRIGHT_BLUE} \____/${AnsiColor.BRIGHT_GREEN} \___| \___/  \__, | \__,_||_|/___|\_| |_/\_|     \___/ 
+${AnsiColor.BRIGHT_BLUE}${AnsiColor.BRIGHT_GREEN}                        | |                                    
+${AnsiColor.BRIGHT_BLUE}${AnsiColor.BRIGHT_GREEN}                        |_|                                    
+${AnsiColor.BRIGHT_YELLOW}:: Running GeoquizAPI Spring Boot ${spring-boot.version} ::${AnsiStyle.NORMAL}

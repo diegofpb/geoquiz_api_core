@@ -1,0 +1,15 @@
+version: '2'
+services:
+  geoquiz-db:
+    image: mysql:5.7
+    container_name: geoquiz-db
+    volumes:
+      - ../volumes/dbdata/:/var/lib/mysql
+    restart: unless-stopped
+    ports:
+      - "7777:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=geoquiz
+      - MYSQL_USER=geoquiz
+      - MYSQL_PASSWORD=geoquiz

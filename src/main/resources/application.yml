@@ -13,7 +13,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5Dialect
     hibernate:
       # FIXME ddl-auto: update (prod) create-drop (dev).
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
         show_sql: true
