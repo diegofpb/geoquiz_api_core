@@ -6,4 +6,7 @@ ${AnsiColor.BRIGHT_BLUE}| |_\ \${AnsiColor.BRIGHT_GREEN}|  __/| (_) || (_| || |_
 ${AnsiColor.BRIGHT_BLUE} \____/${AnsiColor.BRIGHT_GREEN} \___| \___/  \__, | \__,_||_|/___|\_| |_/\_|     \___/ 
 ${AnsiColor.BRIGHT_BLUE}${AnsiColor.BRIGHT_GREEN}                        | |                                    
 ${AnsiColor.BRIGHT_BLUE}${AnsiColor.BRIGHT_GREEN}                        |_|                                    
+${AnsiColor.BRIGHT_YELLOW}${AnsiStyle.NORMAL}
+${AnsiColor.BRIGHT_YELLOW}:: This is a BATMAFIA powered micro-service ::${AnsiStyle.NORMAL}
 ${AnsiColor.BRIGHT_YELLOW}:: Running GeoquizAPI Spring Boot ${spring-boot.version} ::${AnsiStyle.NORMAL}
+${AnsiColor.BRIGHT_YELLOW}${AnsiStyle.NORMAL}
