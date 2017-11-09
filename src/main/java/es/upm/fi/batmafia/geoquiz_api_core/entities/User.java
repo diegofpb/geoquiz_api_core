@@ -20,7 +20,6 @@ public class User {
     @Id
     private String username;
     @NotNull
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     @NotNull
     private String country;

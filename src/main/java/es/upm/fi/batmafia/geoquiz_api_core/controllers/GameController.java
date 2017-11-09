@@ -1,26 +1,21 @@
 package es.upm.fi.batmafia.geoquiz_api_core.controllers;
 
-import es.upm.fi.batmafia.geoquiz_api_core.entities.Game;
-import es.upm.fi.batmafia.geoquiz_api_core.services.GameService;
-import es.upm.fi.batmafia.geoquiz_api_core.wrappers.GameSearch;
+import es.upm.fi.batmafia.geoquiz_api_core.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
-
-import java.sql.Timestamp;
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @RepositoryRestController
+@RequestMapping("/games")
 public class GameController {
 
-    private final GameService gameService;
+    GameRepository gameRepository;
 
     @Autowired
-    public GameController(GameService gameService) {
-        this.gameService = gameService;
+    public GameController(GameRepository gameRepository) {
+        this.gameRepository = gameRepository;
     }
 
-    public List<Game> findGamesBetween(GameSearch gameSearch) {
-        return gameService.findGamesBetween(gameSearch);
-    }
+
 
 }
