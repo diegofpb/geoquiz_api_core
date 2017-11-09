@@ -11,6 +11,6 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "game", path = "games")
 public interface GameRepository extends JpaRepository<Game, Integer> {
 
-    List<Game> findByUserAndDateAfterAndDateBefore(User user, Timestamp date, Timestamp date2);
+    List<Game> findByUserAndDateAfterAndDateBefore(User user, Timestamp date1, Timestamp date2);
 
 }
