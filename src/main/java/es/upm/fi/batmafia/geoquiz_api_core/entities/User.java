@@ -11,7 +11,6 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class User {
 
@@ -24,8 +23,14 @@ public class User {
     @NotNull
     @Email
     private String email;
-
     private boolean validated;
 
+    public User(String username, String password, String country, String email, boolean validated) {
+        this.username = username;
+        this.password = password;
+        this.country = country;
+        this.email = email;
+        this.validated = validated;
+    }
 }
 

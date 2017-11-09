@@ -9,10 +9,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class GameSearch {
+public class GameWrapper {
 
-    private Long date1;
-    private Long date2;
+    private String continent;
+    private Long date;
+    private int score;
 
 
 }

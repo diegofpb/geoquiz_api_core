@@ -9,10 +9,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class GameSearch {
+public class ErrorResponse {
 
-    private Long date1;
-    private Long date2;
-
-
+    private int code;
+    private String message;
 }

@@ -1,33 +1,52 @@
 package es.upm.fi.batmafia.geoquiz_api_core.controllers;
 
 import es.upm.fi.batmafia.geoquiz_api_core.entities.Game;
+import es.upm.fi.batmafia.geoquiz_api_core.entities.User;
 import es.upm.fi.batmafia.geoquiz_api_core.repositories.GameRepository;
+import es.upm.fi.batmafia.geoquiz_api_core.repositories.UserRepository;
+import es.upm.fi.batmafia.geoquiz_api_core.wrappers.Constants;
 import es.upm.fi.batmafia.geoquiz_api_core.wrappers.GameSearch;
+import es.upm.fi.batmafia.geoquiz_api_core.wrappers.exceptions.GeoExceptionElementNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.sql.Timestamp;
 import java.util.List;
 
 @RepositoryRestController
 @RequestMapping("/users")
 public class UserController {
 
-    GameRepository gameRepository;
+    private GameRepository gameRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    public UserController(GameRepository gameRepository) {this.gameRepository=gameRepository;}
+    public UserController(GameRepository gameRepository, UserRepository userRepository) {
+        this.gameRepository = gameRepository;
+        this.userRepository = userRepository;
+    }
 
-    @PostMapping("/score")
-    public int ranking(@RequestBody GameSearch gameSearch) {
+    @PostMapping("/{userId}/score")
+    @ResponseBody
+    public int ranking(@PathVariable("userId") String userId,
+                       @Valid @RequestBody GameSearch gameSearch) throws GeoExceptionElementNotFound {
+
+        User user = userRepository.findByUsername(userId);
+        if (user == null) {
+            throw new GeoExceptionElementNotFound(Constants.USER_NOT_FOUND_CODE,Constants.USER_NOT_FOUND_MSG);
+        }
+
+        List<Game> games = gameRepository.findGamesByUserAndDateAfterAndDateBefore(
+                user, new Timestamp(gameSearch.getDate1()), new Timestamp(gameSearch.getDate2()));
+
+        if (games.size() == 0) {
+            throw new GeoExceptionElementNotFound(Constants.GAME_NOT_FOUND_CODE,Constants.GAME_NOT_FOUND_MSG);
+        }
 
         int score = 0;
-        List<Game> games = gameRepository.findByUserAndDateAfterAndDateBefore(gameSearch.getUser(),
-                gameSearch.getDate1(), gameSearch.getDate2());
-
-        for(Game game : games)
+        for (Game game : games)
             score += game.getScore();
 
         return score;
