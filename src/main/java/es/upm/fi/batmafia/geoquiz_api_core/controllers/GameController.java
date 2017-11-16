@@ -30,6 +30,7 @@ public class GameController {
         this.userRepository = userRepository;
     }
 
+    @CrossOrigin
     @PostMapping("/{userId}")
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
