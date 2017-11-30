@@ -53,4 +53,25 @@ public class UserController {
 
     }
 
+
+    @CrossOrigin
+    @PostMapping
+    public void ranking(@Valid @RequestBody User userRequest)
+        throws GeoExceptionElementNotFound {
+
+        User user = userRepository.findOne(userRequest.getUsername());
+
+        if (user == null) {
+            throw new GeoExceptionElementNotFound(Constants.USER_NOT_FOUND_CODE,Constants.USER_NOT_FOUND_MSG);
+        }
+
+        user.setCountry(userRequest.getCountry());
+        user.setPassword(userRequest.getPassword());
+        user.setValidated(userRequest.isValidated());
+
+        userRepository.save(user);
+
+
+    }
+
 }
