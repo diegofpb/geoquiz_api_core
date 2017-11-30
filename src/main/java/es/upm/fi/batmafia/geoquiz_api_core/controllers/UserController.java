@@ -56,7 +56,8 @@ public class UserController {
 
     @CrossOrigin
     @PostMapping
-    public void ranking(@Valid @RequestBody User userRequest)
+    @ResponseBody
+    public void saveUser(@Valid @RequestBody User userRequest)
         throws GeoExceptionElementNotFound {
 
         User user = userRepository.findOne(userRequest.getUsername());
