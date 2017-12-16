@@ -75,4 +75,11 @@ public class UserController {
 
     }
 
+    @CrossOrigin
+    @GetMapping
+    @ResponseBody
+    public List<User> getAllUsers(){
+        return userRepository.findAll();
+    }
+
 }
