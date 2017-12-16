@@ -11,7 +11,8 @@ public class Constants {
     // MESSAGES
     public final static String USER_NOT_FOUND_MSG = "No se ha encontrado el/los usuario/s.";
     public final static String GAME_NOT_FOUND_MSG = "No se ha encontrado la/s partida/s.";
-    public final static String FRIENDSHIP_ALREADY_CREATED_MSG = "Ya existe una amistad entre estos usuarios";
+    public final static String FRIENDSHIP_ALREADY_CREATED_MSG =
+        "Ya existe una amistad entre estos usuarios o tu amistad está pendiente de confirmación.";
 
 
 }

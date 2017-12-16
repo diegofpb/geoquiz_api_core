@@ -23,9 +23,13 @@ public class Friendship {
     @OneToOne
     private User user2;
 
-    public Friendship(User user1, User user2) {
+    @NotNull
+    private boolean accepted;
+
+    public Friendship(User user1, User user2, boolean accepted) {
         this.user1 = user1;
         this.user2 = user2;
+        this.accepted = accepted;
     }
 
 }

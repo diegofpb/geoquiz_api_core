@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class FriendshipWrapper {
 
-    private String user1;
-    private String user2;
+    private String username1;
+    private String username2;
 
 }
