@@ -32,6 +32,7 @@ public class FriendshipController {
 
   // TODO ACORDARSE DE A LA HORA DE SOLICITAR AMISTADES, EL SOLICITANTE ES EL USER1.
   @PostMapping
+  @CrossOrigin
   @ResponseBody
   @ResponseStatus(HttpStatus.CREATED)
   public void saveFriendship(@Valid @RequestBody FriendshipWrapper friendshipWrapper)
@@ -55,6 +56,7 @@ public class FriendshipController {
   }
 
 
+  @CrossOrigin
   @GetMapping("/getPendingFriendships")
   @ResponseBody
   public List<Friendship> getPendingFriendships(@RequestParam("username") String username)
@@ -71,6 +73,7 @@ public class FriendshipController {
   }
 
 
+  @CrossOrigin
   @PutMapping
   @ResponseStatus(HttpStatus.ACCEPTED)
   public void acceptFriendship(@RequestParam("username1") String username1,
