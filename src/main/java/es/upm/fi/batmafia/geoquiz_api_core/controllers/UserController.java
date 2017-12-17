@@ -82,4 +82,9 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    @CrossOrigin
+    @GetMapping("/orderByCountry")
+    @ResponseBody
+    public List<User> getAllUsersOrderByCountry() { return userRepository.findAllByOrderByCountryAsc(); }
+
 }
