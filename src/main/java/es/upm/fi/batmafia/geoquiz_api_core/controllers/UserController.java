@@ -16,7 +16,6 @@ import java.sql.Timestamp;
 import java.util.List;
 
 @RepositoryRestController
-@RequestMapping("/users")
 public class UserController {
 
     private GameRepository gameRepository;
@@ -28,7 +27,7 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-    @PostMapping("/{userId}/score")
+    @PostMapping("/users/{userId}/score")
     @ResponseBody
     public int ranking(@PathVariable("userId") String userId,
                        @Valid @RequestBody GameSearch gameSearch) throws GeoExceptionElementNotFound {
@@ -55,10 +54,9 @@ public class UserController {
 
 
     @CrossOrigin
-    @PostMapping
     @ResponseBody
-    public void saveUser(@Valid @RequestBody User userRequest)
-        throws GeoExceptionElementNotFound {
+    @PutMapping("/users")
+    public void updateUser(@Valid @RequestBody User userRequest) throws GeoExceptionElementNotFound {
 
         User user = userRepository.findOne(userRequest.getUsername());
 
@@ -72,6 +70,14 @@ public class UserController {
 
         userRepository.save(user);
 
+    }
+
+    @CrossOrigin
+    @ResponseBody
+    @PostMapping("/users")
+    public void createUser(@Valid @RequestBody User userRequest) throws GeoExceptionElementNotFound {
+
+        userRepository.save(userRequest);
 
     }
 
