@@ -55,7 +55,7 @@ public class UserController {
 
     @CrossOrigin
     @ResponseBody
-    @PostMapping("/users")
+    @PutMapping("/users")
     public void updateUser(@Valid @RequestBody User userRequest) throws GeoExceptionElementNotFound {
 
         User user = userRepository.findOne(userRequest.getUsername());
@@ -74,7 +74,7 @@ public class UserController {
 
     @CrossOrigin
     @ResponseBody
-    @PutMapping("/users")
+    @PostMapping("/users")
     public void createUser(@Valid @RequestBody User userRequest) throws GeoExceptionElementNotFound {
 
         userRepository.save(userRequest);
