@@ -14,23 +14,23 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class User {
 
-    @Id
-    private String username;
-    @NotNull
-    private String password;
-    @NotNull
-    private String country;
-    @NotNull
-    @Email
-    private String email;
-    private boolean validated;
+  @Id
+  private String username;
+  @NotNull
+  private String password;
+  @NotNull
+  private String country;
+  @NotNull
+  @Email
+  private String email;
+  private boolean validated;
 
-    public User(String username, String password, String country, String email, boolean validated) {
-        this.username = username;
-        this.password = password;
-        this.country = country;
-        this.email = email;
-        this.validated = validated;
-    }
+  public User(String username, String password, String country, String email, boolean validated) {
+    this.username = username;
+    this.password = password;
+    this.country = country;
+    this.email = email;
+    this.validated = validated;
+  }
 }
 

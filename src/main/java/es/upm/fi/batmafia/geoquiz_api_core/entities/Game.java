@@ -14,24 +14,24 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 public class Game {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    @NotNull
-    @ManyToOne
-    private User user;
-    @NotNull
-    private String continent;
-    @NotNull
-    private Timestamp date;
-    @NotNull
-    private int score;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private int id;
+  @NotNull
+  @ManyToOne
+  private User user;
+  @NotNull
+  private String continent;
+  @NotNull
+  private Timestamp date;
+  @NotNull
+  private int score;
 
-    public Game(User user, String continent, Timestamp date, int score) {
-        this.user = user;
-        this.continent = continent;
-        this.date = date;
-        this.score = score;
-    }
+  public Game(User user, String continent, Timestamp date, int score) {
+    this.user = user;
+    this.continent = continent;
+    this.date = date;
+    this.score = score;
+  }
 
 }

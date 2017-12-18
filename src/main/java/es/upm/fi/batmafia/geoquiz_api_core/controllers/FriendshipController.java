@@ -30,7 +30,6 @@ public class FriendshipController {
     this.friendshipRepository = friendshipRepository;
   }
 
-  // TODO ACORDARSE DE A LA HORA DE SOLICITAR AMISTADES, EL SOLICITANTE ES EL USER1.
   @PostMapping
   @CrossOrigin
   @ResponseBody

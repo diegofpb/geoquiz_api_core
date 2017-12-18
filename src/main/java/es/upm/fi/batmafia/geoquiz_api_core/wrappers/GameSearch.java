@@ -11,8 +11,7 @@ import lombok.ToString;
 @ToString
 public class GameSearch {
 
-    private Long date1;
-    private Long date2;
-
+  private Long date1;
+  private Long date2;
 
 }

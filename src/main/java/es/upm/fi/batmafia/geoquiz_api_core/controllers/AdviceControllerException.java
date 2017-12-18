@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 public class AdviceControllerException {
 
-    @ExceptionHandler(value = GeoExceptionElementNotFound.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ResponseBody
-    public ErrorResponse handleUPMNotFoundException(GeoExceptionElementNotFound e) {
-        return new ErrorResponse(e.getCode(), e.getMessage());
-    }
+  @ExceptionHandler(value = GeoExceptionElementNotFound.class)
+  @ResponseStatus(HttpStatus.NOT_FOUND)
+  @ResponseBody
+  public ErrorResponse handleUPMNotFoundException(GeoExceptionElementNotFound e) {
+    return new ErrorResponse(e.getCode(), e.getMessage());
+  }
 
 }

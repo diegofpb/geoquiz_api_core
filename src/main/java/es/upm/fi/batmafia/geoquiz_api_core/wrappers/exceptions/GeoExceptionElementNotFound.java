@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 public class GeoExceptionElementNotFound extends Exception {
 
-    private int code;
-    private String message;
+  private int code;
+  private String message;
 
 }

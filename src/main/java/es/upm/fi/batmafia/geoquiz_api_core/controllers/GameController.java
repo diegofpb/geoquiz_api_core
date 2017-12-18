@@ -21,30 +21,31 @@ import java.util.List;
 @RequestMapping("/games")
 public class GameController {
 
-    private GameRepository gameRepository;
-    private UserRepository userRepository;
+  private GameRepository gameRepository;
+  private UserRepository userRepository;
 
-    @Autowired
-    public GameController(GameRepository gameRepository, UserRepository userRepository) {
-        this.gameRepository = gameRepository;
-        this.userRepository = userRepository;
+  @Autowired
+  public GameController(GameRepository gameRepository, UserRepository userRepository) {
+    this.gameRepository = gameRepository;
+    this.userRepository = userRepository;
+  }
+
+  @CrossOrigin
+  @PostMapping("/{userId}")
+  @ResponseBody
+  @ResponseStatus(HttpStatus.CREATED)
+  public void saveGame(@PathVariable("userId") String userId,
+      @Valid @RequestBody GameWrapper gameWrapper) throws GeoExceptionElementNotFound {
+
+    User user = userRepository.findByUsername(userId);
+    if (user == null) {
+      throw new GeoExceptionElementNotFound(Constants.USER_NOT_FOUND_CODE,
+          Constants.USER_NOT_FOUND_MSG);
     }
 
-    @CrossOrigin
-    @PostMapping("/{userId}")
-    @ResponseBody
-    @ResponseStatus(HttpStatus.CREATED)
-    public void saveGame(@PathVariable("userId") String userId,
-                       @Valid @RequestBody GameWrapper gameWrapper) throws GeoExceptionElementNotFound {
+    gameRepository.save(new Game(user, gameWrapper.getContinent(),
+        new Timestamp(gameWrapper.getDate()), gameWrapper.getScore()));
 
-        User user = userRepository.findByUsername(userId);
-        if (user == null) {
-            throw new GeoExceptionElementNotFound(Constants.USER_NOT_FOUND_CODE,Constants.USER_NOT_FOUND_MSG);
-        }
-
-        gameRepository.save(new Game(user,gameWrapper.getContinent(),
-                new Timestamp(gameWrapper.getDate()),gameWrapper.getScore()));
-
-    }
+  }
 
 }

@@ -11,9 +11,8 @@ import lombok.ToString;
 @ToString
 public class GameWrapper {
 
-    private String continent;
-    private Long date;
-    private int score;
-
+  private String continent;
+  private Long date;
+  private int score;
 
 }

@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class GeoquizApiCoreApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GeoquizApiCoreApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(GeoquizApiCoreApplication.class, args);
+  }
 }
